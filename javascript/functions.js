@@ -1,3 +1,11 @@
+class node {
+	constructor(reversed, source, target) {
+		this.reversed = reversed;
+		this.source = source;
+		this.target = target;
+	}
+}
+
 //function which makes a boolean array of which links are the reverse of another
 function getReversed(d) {
 	var points = new Array(d.length); 
@@ -12,7 +20,7 @@ function getReversed(d) {
 					reverse = true;
 			}
 		}
-		points[i] = reverse;
+		points[i] = new node(reverse, d[i].source.id, d[i].target.id);
 		reverse=false;
 	}
 }  
